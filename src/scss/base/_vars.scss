@@ -18,6 +18,7 @@ $mobile: 650px; // media max-width для мобильных
 	@return clamp(#{$min}px, #{$min}px + (#{$max} - #{$min}) * ((100vw - #{$min-width}px) / ($max-width - $min-width)), #{$max}px);
 }
 // min, max для адаптивного изменения размеров
+$header-height: adaptive(70, 100); // min, max высота header
 $section-padding: adaptive(20, 40); // min, max отступы в секциях по бокам
 $text-size: 16px; // размер основного текста
 $title-size: adaptive(24, 36); // min, max размер заголовков

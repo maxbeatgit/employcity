@@ -289,30 +289,30 @@ svg {
 	color: #BBBBBB;
 }
 .footer__container {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(5, auto);
 	justify-content: space-between;
-	gap: 20px;
+	grid-gap: 10px 38px;
 }
-@media (max-width: 1160px) {
+@media (max-width: 1100px) {
 	.footer__container {
-		gap: 20px 38px;
+		grid-template-columns: repeat(2, 1fr auto) 1fr;
+	}
+}
+@media (max-width: 650px) {
+	.footer__container {
+		grid-template-columns: 1fr;
 	}
 }
 .footer__separ {
 	width: 1px;
-	height: 18px;
 	background: #BBBBBB;
-}
-@media (max-width: 1160px) {
-	.footer__separ {
-		display: none;
-	}
 }
 .footer__copyright {
 	color: #FFFFFF;
 }
 .footer__group {
+	align-self: start;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 10px clamp(10px, 10px + (38 - 10) * (100vw - 320px) / 932, 38px);
@@ -321,6 +321,7 @@ svg {
 	display: flex;
 	align-items: center;
 	gap: 10px;
+	white-space: nowrap;
 }
 .footer__icon {
 	width: 20px;
@@ -335,7 +336,7 @@ svg {
 
 /* Header */
 .header {
-	height: 100px;
+	height: clamp(70px, 70px + (100 - 70) * (100vw - 320px) / 932, 100px);
 	background: rgba(16, 16, 29, 0.9);
 	position: fixed;
 	width: 100%;
@@ -367,7 +368,7 @@ svg {
 /* Main */
 .main {
 	min-height: 100vh;
-	padding-top: 100px;
+	padding-top: clamp(70px, 70px + (100 - 70) * (100vw - 320px) / 932, 100px);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
