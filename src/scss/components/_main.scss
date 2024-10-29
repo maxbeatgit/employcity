@@ -9,29 +9,41 @@
 	background: url(../img/main-bg.jpg) top center / cover no-repeat;
 
 	&__container {
-		padding-top: 100px;
-		padding-bottom: 100px;
+		padding-top: adaptive(50, 100);
+		padding-bottom: adaptive(50, 100);
+		display: grid;
+		grid-gap: adaptive(35, 80);
 	}
 
 	&__title {
-		display: block;
-		// font-size: adaptive(40, 64);
-		margin-bottom: 0.5em;
+		font-size: adaptive(28, 48);
+		margin-bottom: 0;
+		max-width: 800px;
 	}
 
 	&__text {
-		font-size: adaptive(18, 28);
+		font-size: adaptive(16, 20);
+
+		ul {
+			margin-top: 10px;
+			display: grid;
+			grid-gap: 5px;
+
+			li {
+				margin-left: 1em;
+
+				&::marker {
+					content: "-  ";
+				}
+			}
+
+		}
 	}
 
-	&__icons {
+	&__buttons {
 		display: flex;
-		gap: 60px;
-		margin-top: 20px;
+		flex-wrap: wrap;
+		gap: 15px 30px;
 	}
 
-	&__icon {
-		width: 80px;
-		height: 80px;
-		color: $main-color;
-	}
 }

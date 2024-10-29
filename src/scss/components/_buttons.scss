@@ -1,0 +1,42 @@
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	width: fit-content;
+	min-width: 183px;
+	height: 43px;
+	padding: 0 30px;
+	border: 1px solid $white;
+	border-radius: 4px;
+	background: $main-color;
+	color: $white;
+	font-weight: 400;
+	font-size: 13px;
+	text-transform: uppercase;
+	
+	@media (hover: hover) {
+		&:hover {
+			filter: brightness(120%);
+			cursor: pointer;
+		}
+	}
+
+	&_white {
+		color: $lightblack;
+		border-color: $lightblack;
+		background: $white;
+
+		@media (hover: hover) {
+			&:hover {
+				filter: none;
+				color: $main-color;
+				border-color: $main-color;
+			}
+		}
+	}
+	
+	&:active {
+		transform: scale(0.95);
+	}
+}

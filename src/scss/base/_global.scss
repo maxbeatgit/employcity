@@ -7,6 +7,7 @@ body {
 	color: $black;
 	background: $white; 
 	position: relative;
+	min-width: #{$min-width}px;
 }
 
 .container, [class$="container"] {
@@ -38,50 +39,4 @@ p:not(:last-child) {
 
 svg {
 	fill: currentColor;
-}
-
-.cover {
-	object-fit: cover;
-	object-position: center;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-.contain {
-	object-fit: contain;
-	object-position: center;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-.button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: fit-content;
-	height: 50px;
-	padding: 0 30px;
-	border: none;
-	border-radius: 50px;
-	background: $lightblack;
-	color: $white;
-	font-weight: 500;
-	font-size: 18px;
-	text-transform: uppercase;
-	
-	@media (hover: hover) {
-		&:hover {
-			filter: brightness(120%);
-			cursor: pointer;
-		}
-	}
-	
-	&:active {
-		transform: scale(0.95);
-	}
 }
