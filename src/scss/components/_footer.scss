@@ -1,0 +1,17 @@
+/* Footer */
+.footer {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background: $darkgray;
+
+	&__copyright {
+		color: $white;
+		text-align: center;
+		font-size: 18px;
+
+		@media(max-width: 500px) {
+			font-size: 14px;
+		}
+	}
+}
+

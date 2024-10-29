@@ -1,0 +1,52 @@
+/* Up button */
+
+$up-button-size: 35px;
+$up-button-padding: 20px;
+$up-button-radius: 4px;
+$up-button-color: $black;
+$up-button-hover: $main-color;
+$up-arrow-color: $white;
+$up-arrow-width: 2px;
+
+.up {
+	position: fixed;
+	bottom: $up-button-padding;
+	right: $up-button-padding;
+	background: $up-button-color;
+	width: $up-button-size;
+	height: $up-button-size;
+	border-radius: $up-button-radius;
+	padding: 0;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.3s, opacity 0.3s;
+	z-index: 50;
+	opacity: 0;
+	pointer-events: none;
+
+	@media (pointer:coarse) {
+		display: none;
+	}
+	
+	&:after {
+		content: '';
+		display: block;
+		width: 30%;
+		height: 30%;
+		border-left: $up-arrow-width solid $up-arrow-color;
+		border-top: $up-arrow-width solid $up-arrow-color;
+		transform: rotate(45deg);
+		margin-top: 15%;
+	}
+
+	&:hover {
+		background: $up-button-hover;
+	}
+		
+	&_show {
+		opacity: 1;
+		pointer-events: all;
+	}
+}

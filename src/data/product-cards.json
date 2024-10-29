@@ -1,0 +1,81 @@
+[{
+		"image": "product-img1.jpg",
+		"price": "5 290",
+		"oldprice": "6 990",
+		"title": "Смартфон Galaxy A1",
+		"available": "В наличии",
+		"hit": false,
+		"newprod": true,
+		"stock": false
+	},
+	{
+		"image": "product-img2.jpg",
+		"price": "2 990",
+		"oldprice": "",
+		"title": "Беспроводные наушники AirSound",
+		"available": "Нет в наличии",
+		"hit": false,
+		"newprod": false,
+		"stock": true
+	},
+	{
+		"image": "product-img3.jpg",
+		"price": "8 490",
+		"oldprice": "9 990",
+		"title": "Умные часы SmartWatch X",
+		"available": "В наличии",
+		"hit": false,
+		"newprod": false,
+		"stock": false
+	},
+	{
+		"image": "product-img4.jpg",
+		"price": "1 990",
+		"oldprice": "",
+		"title": "Зарядное устройство FastCharge 3.0",
+		"available": "В наличии",
+		"hit": true,
+		"newprod": false,
+		"stock": false
+	},
+	{
+		"image": "product-img1.jpg",
+		"price": "3 590",
+		"oldprice": "",
+		"title": "Фитнес-браслет FitTracker",
+		"available": "Нет в наличии",
+		"hit": true,
+		"newprod": false,
+		"stock": true
+	},
+	{
+		"image": "product-img2.jpg",
+		"price": "12 290",
+		"oldprice": "15 990",
+		"title": "Планшет Tab Max 10.1",
+		"available": "В наличии",
+		"hit": true,
+		"newprod": true,
+		"stock": false
+	},
+	{
+		"image": "product-img3.jpg",
+		"price": "7 590",
+		"oldprice": "",
+		"title": "Портативная колонка SoundBoom",
+		"available": "В наличии",
+		"hit": false,
+		"newprod": false,
+		"stock": false
+	},
+	{
+		"image": "product-img4.jpg",
+		"price": "11 290",
+		"oldprice": "12 990",
+		"title": "Ноутбук UltraBook Z14",
+		"available": "Нет в наличии",
+		"hit": true,
+		"newprod": true,
+		"stock": true
+	}
+]

@@ -1,0 +1,35 @@
+/* Header */
+
+.header {
+	height: 100px;
+	background: rgba(16, 16, 29, 0.9);
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+	
+	&__container {
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	
+	&__logo {
+		font-family: $logo-family;
+		font-weight: 800;
+		font-size: adaptive(22, 28);
+		text-transform: uppercase;
+		color: $white;
+		transition: opacity 0.3s;
+		position: relative;
+		z-index: 2;
+
+		span {
+			color: $main-color;
+		}
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+}

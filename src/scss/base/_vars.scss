@@ -1,0 +1,32 @@
+$font-family: 'Lato', sans-serif;
+$logo-family: 'Raleway', sans-serif;
+
+$main-color: #3E9CDC;
+$second-color: #286690;
+$white: #FFFFFF;
+$black: #000000;
+$lightblack: #272733;
+$gray: #BBBBBB;
+$darkgray: #3D4050;
+
+$max-width: 1252; // максимальная ширина контентной части по макету вместе с паддингами по бокам
+$min-width: 320; // минимальная ширина контентной части (для вычисления adaptive)
+$mobile: 650px; // media max-width для мобильных
+
+// функция для адаптивного изменения размеров от max до min на разрешении от max-width до min-width
+@function adaptive($min, $max) {
+	@return clamp(#{$min}px, #{$min}px + (#{$max} - #{$min}) * ((100vw - #{$min-width}px) / ($max-width - $min-width)), #{$max}px);
+}
+// min, max для адаптивного изменения размеров
+$section-padding: adaptive(20, 40); // min, max отступы в секциях по бокам
+$text-size: 16px; // размер основного текста
+$title-size: adaptive(24, 36); // min, max размер заголовков
+
+// стили для контейнера (используется @extend чтобы стили объединялись)
+%container {
+	width: 100%;
+	max-width: #{$max-width}px;
+	padding: 0 $section-padding;
+	margin: 0 auto;
+	position: relative;
+}
