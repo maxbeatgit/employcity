@@ -3,8 +3,7 @@
 $up-button-size: 35px;
 $up-button-padding: 20px;
 $up-button-radius: 4px;
-$up-button-color: $black;
-$up-button-hover: $main-color;
+$up-button-color: $main-color;
 $up-arrow-color: $white;
 $up-arrow-width: 2px;
 
@@ -21,7 +20,7 @@ $up-arrow-width: 2px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transition: background-color 0.3s, opacity 0.3s;
+	transition: filter 0.3s, opacity 0.3s;
 	z-index: 50;
 	opacity: 0;
 	pointer-events: none;
@@ -42,7 +41,7 @@ $up-arrow-width: 2px;
 	}
 
 	&:hover {
-		background: $up-button-hover;
+		filter: brightness(120%);
 	}
 		
 	&_show {
