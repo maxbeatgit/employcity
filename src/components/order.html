@@ -1,6 +1,45 @@
 <section class="order">
-	<h1 class="order__title title">Оформление Заказа</h1>
-	<svg class="main__icon">
-		<use xlink:href="img/icons.svg#search"></use>
-	</svg>
+	<div class="order__container">
+		<h2 class="order__title title">Оформление <span>Заказа</span></h2>
+		<div class="order__text">Перед заполнением формы ознакомьтесь с нашей схемой работы!</div>
+		<div class="order__info">
+			<ul class="order__steps">
+				<li class="order__steps-item">
+					<span class="order__steps-icon">
+						<img src="img/icons.svg#search" alt="">
+					</span>
+					Lorem ipsum dolor sit amet
+				</li>
+				<li class="order__steps-item">
+					<span class="order__steps-icon">
+						<img src="img/icons.svg#percent" alt="">
+					</span>
+					Сonsectetur adipiscing elit
+				</li>
+				<li class="order__steps-item">
+					<span class="order__steps-icon">
+						<img src="img/icons.svg#file" alt="">
+					</span>
+					Sed do eiusmod tempor
+				</li>
+				<li class="order__steps-item">
+					<span class="order__steps-icon">
+						<img src="img/icons.svg#message" alt="">
+					</span>
+					Esse cillum dolore eu fugiat
+				</li>
+				<li class="order__steps-item">
+					<span class="order__steps-icon">
+						<img src="img/icons.svg#money" alt="">
+					</span>
+					Excepteur sint occaecat cupidatat non proident
+				</li>
+			</ul>
+		</div>
+		<form class="order__form form" action="#">
+			<input class="form__input" type="email" name="email" placeholder="Ваш e-mail" required>
+			<input class="form__input" type="text" name="name" placeholder="Ваше имя" required>
+			<button class="form__button button" type="submit">Отправить</button>
+		</form>
+	</div>
 </section>
