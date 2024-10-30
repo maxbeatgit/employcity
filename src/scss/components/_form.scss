@@ -1,12 +1,12 @@
 /* Form */
 
-@mixin slider-track {
+@mixin range-track {
 	height: 6px;
 	background-color: $gray;
 	border: 1px solid $white;
 	border-radius: 50px;
 }
-@mixin slider-thumb {
+@mixin range-thumb {
 	-webkit-appearance: none;
 	appearance: none;
 	width: 28px;
@@ -18,8 +18,29 @@
 	margin-top: -12px;
 	transition: filter 0.3s;
 
-	&:hover {
-		filter: brightness(120%);
+	@media (hover: hover) {
+		&:hover {
+			filter: brightness(120%);
+		}
+	}
+}
+@mixin scrollbar {
+	&::-webkit-scrollbar {
+		width: 7px; 
+		height: 0;
+		background: $darkgray;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: $main-color;
+		border-radius: 50px;
+	}
+	&::-webkit-scrollbar-button:vertical:start:decrement,
+	&::-webkit-scrollbar-button:vertical:end:increment {
+		display: none;
+	}
+	@-moz-document url-prefix() {
+		scrollbar-color: $main-color $darkgray;
+		scrollbar-width: thin;
 	}
 }
 
@@ -80,7 +101,6 @@
 			white-space: nowrap;
 			padding-right: 40px;
 			cursor: pointer;
-			transition: background-color 0.1s, border-color 0.3s;
 		}
 		&_open {
 			
@@ -93,7 +113,6 @@
 				background: $darkgray;
 				border-color: $darkgray;
 				color: $white;
-				transition: background-color 0.1s, border-color 0.1s;
 				pointer-events: none;
 				
 				&::placeholder {
@@ -111,8 +130,7 @@
 			top: calc(100% - 1px);
 			left: 0;
 			z-index: 10;
-			min-width: 100%;
-			max-width: calc(100vw - var(--page-padding-x) * 2);
+			width: 100%;
 			opacity: 0;
 			pointer-events: none;
 			transform: scaleY(0.8);
@@ -151,29 +169,10 @@
 			overflow-x: hidden;
 			padding: 0;
 			overscroll-behavior: contain;
-
-			@-moz-document url-prefix() {
-				scrollbar-color: $main-color $darkgray;
-				scrollbar-width: thin;
-			}
-			
-			&::-webkit-scrollbar {
-				width: 7px; 
-				height: 0;
-				background: $darkgray;
-			}
-			&::-webkit-scrollbar-thumb {
-				background: $main-color;
-				border-radius: 50px;
-			}
-			&::-webkit-scrollbar-button:vertical:start:decrement,
-			&::-webkit-scrollbar-button:vertical:end:increment {
-				display: none;
-			}
+			@include scrollbar;
 		}
 	}
 	
-
 	&__range {
 		display: grid;
 		grid-template-columns: 1fr auto;
@@ -190,16 +189,16 @@
 			grid-column: span 2;
 		}
 		&-input::-webkit-slider-runnable-track {
-			@include slider-track
+			@include range-track
 		}
 		&-input::-webkit-slider-thumb {
-			@include slider-thumb;
+			@include range-thumb;
 		}
 		&-input::-moz-range-track {
-			@include slider-track
+			@include range-track
 		}
 		&-input::-moz-range-thumb {
-			@include slider-thumb;
+			@include range-thumb;
 		}
 	}
 
@@ -224,5 +223,4 @@
 			max-width: 90%;
 		}
 	}
-
 }

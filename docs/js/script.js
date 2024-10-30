@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var burger = document.querySelector('.burger');
   var burgerIcon = burger.querySelector('.burger__icon');
   var menu = document.querySelector('.menu');
-  var menuLinks = document.querySelectorAll('.menu__link');
 
   // add burger icon
   if (burger && !burgerIcon) {
@@ -34,9 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   var toggleClass = function toggleClass(element, className) {
     return element.classList.toggle(className);
-  };
-  var removeClass = function removeClass(element, className) {
-    return element.classList.remove(className);
   };
 
   // open/close mobile menu
@@ -46,19 +42,8 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleClass(html, 'scroll-disable');
   };
 
-  // close mobile menu
-  var closeMenu = function closeMenu() {
-    removeClass(burger.querySelector('.burger__icon'), 'burger__icon_close');
-    removeClass(menu, 'menu_open');
-    removeClass(html, 'scroll-disable');
-  };
-
   // click on burger
   burger.addEventListener('click', toggleMenu);
-  // закрываем меню после нажатия на ссылку (если меню якорное и не ведет на другую страницу)
-  menuLinks.forEach(function (link) {
-    return link.addEventListener('click', closeMenu);
-  });
 });
 ;// CONCATENATED MODULE: ./src/js/modules/form.js
 /* Range value */
