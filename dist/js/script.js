@@ -60,6 +60,14 @@ document.addEventListener('DOMContentLoaded', function () {
     return link.addEventListener('click', closeMenu);
   });
 });
+;// CONCATENATED MODULE: ./src/js/modules/form.js
+// range value
+var rangeInput = document.getElementById('range');
+var rangeValue = document.querySelector('.form__range-value');
+rangeValue.textContent = "".concat(rangeInput.value, "%");
+rangeInput.addEventListener('input', function () {
+  rangeValue.textContent = "".concat(rangeInput.value, "%");
+});
 ;// CONCATENATED MODULE: ./src/js/modules/up.js
 if (window.innerWidth > 1024) {
   var up = document.createElement('div');
@@ -95,6 +103,7 @@ if (window.innerWidth > 1024) {
   });
 }
 ;// CONCATENATED MODULE: ./src/js/script.js
+
 
 
 

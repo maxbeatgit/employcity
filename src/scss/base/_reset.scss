@@ -44,6 +44,7 @@ input[type="search"]::-webkit-search-results-decoration {display: none;}
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {-webkit-appearance: none;}
 input[type="number"] {-moz-appearance: textfield;}
+input[type="range"] {-webkit-appearance: none; width: 100%;}
 
 a, a:hover, a:visited {text-decoration: none;}
 img {vertical-align: top; max-width: 100%;}
