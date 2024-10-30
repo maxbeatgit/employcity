@@ -45,8 +45,8 @@
 			<div class="order__container">
 				<h2 class="order__title title">Оформление <span>Заказа</span></h2>
 				<div class="order__text">Перед заполнением формы ознакомьтесь с нашей схемой работы!</div>
-				<div class="order__info">
-					<ul class="order__steps">
+				<div class="order__steps">
+					<ul class="order__steps-list">
 						<li class="order__steps-item">
 							<span class="order__steps-icon">
 								<img src="img/icons.svg#search" alt="">
@@ -76,12 +76,22 @@
 				</div>
 				<form class="order__form form" action="#">
 					<input class="form__input" type="email" name="email" placeholder="Ваш e-mail" required>
+					<input class="form__input" type="email" name="email" placeholder="Ваш e-mail" required>
 					<input class="form__input" type="text" name="name" placeholder="Ваше имя" required>
-					<button class="form__button button" type="submit">Отправить</button>
-					<div class="form__range">
+					<div class="order__form-range form__range">
 						<label for="range">Sed ut perspiciatis, unde omnis iste natus</label>
 						<span class="form__range-value">0%</span>
 						<input class="form__range-input" type="range" name="range" id="range" min="0" max="100" value="75">
+					</div>
+					<label class="form__file button button_white button_big">
+						<input class="form__file-input" name="file" type="file">
+						<svg class="form__file-icon">
+							<use href="img/icons.svg#upload"></use>
+						</svg>
+						<span class="form__file-text">Прикрепить файл</span>
+					</label>
+					<div class="order__form-footer">
+						<button class="order__form-button button button_big" type="submit">Отправить</button>
 					</div>
 				</form>
 			</div>

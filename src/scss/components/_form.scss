@@ -54,15 +54,10 @@
 	}
 
 	&__range {
-		grid-column: span 2;
 		display: grid;
 		grid-template-columns: 1fr auto;
 		grid-gap: 20px;
-		font-size: 18px;
-
-		@media(max-width: $mobile) {
-			grid-column: 1;
-		}
+		font-size: adaptive(16, 18);
 		
 		&-value {
 			min-width: 46px;
@@ -87,8 +82,25 @@
 		}
 	}
 
-	&__button {
-		height: 48px;
+	&__file {
 		min-width: 100%;
+		max-width: 100%;
+
+		&-input {
+			display: none;
+		}
+
+		&-icon {
+			width: 18px;
+			flex-shrink: 0;
+		}
+
+		&-text {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 90%;
+		}
 	}
+
 }

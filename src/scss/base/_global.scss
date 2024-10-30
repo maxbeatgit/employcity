@@ -29,7 +29,7 @@ body {
 a {
 	color: $main-color;
 }
-a, a:before, a > *, button {
+a, a:before, a > *, button, .button {
 	transition: 0.3s;
 }
 

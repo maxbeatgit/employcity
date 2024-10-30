@@ -6,7 +6,7 @@
 	width: fit-content;
 	min-width: 183px;
 	height: 43px;
-	padding: 0 30px;
+	padding: 0 10px;
 	border: 1px solid $white;
 	border-radius: 4px;
 	background: $main-color;
@@ -34,6 +34,13 @@
 				border-color: $main-color;
 			}
 		}
+	}
+
+	&_big {
+		height: 48px;
+		min-width: 100%;
+		font-weight: 600;
+		font-size: 15px;
 	}
 	
 	&:active {

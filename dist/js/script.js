@@ -62,11 +62,25 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 ;// CONCATENATED MODULE: ./src/js/modules/form.js
 // range value
-var rangeInput = document.getElementById('range');
-var rangeValue = document.querySelector('.form__range-value');
-rangeValue.textContent = "".concat(rangeInput.value, "%");
-rangeInput.addEventListener('input', function () {
+document.querySelectorAll('.form__range').forEach(function (range) {
+  var rangeInput = range.querySelector('.form__range-input');
+  var rangeValue = range.querySelector('.form__range-value');
   rangeValue.textContent = "".concat(rangeInput.value, "%");
+  rangeInput.addEventListener('input', function () {
+    rangeValue.textContent = "".concat(rangeInput.value, "%");
+  });
+});
+
+// file upload
+document.querySelectorAll('.form__file-input').forEach(function (input) {
+  input.addEventListener('change', function () {
+    var uploadText = this.closest('.form__file').querySelector('.form__file-text');
+    if (this.files.length > 0) {
+      uploadText.textContent = this.files[0].name;
+    } else {
+      uploadText.textContent = 'Прикрепить файл';
+    }
+  });
 });
 ;// CONCATENATED MODULE: ./src/js/modules/up.js
 if (window.innerWidth > 1024) {
