@@ -61,7 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 ;// CONCATENATED MODULE: ./src/js/modules/form.js
-// range value
+/* Range value */
+
 document.querySelectorAll('.form__range').forEach(function (range) {
   var rangeInput = range.querySelector('.form__range-input');
   var rangeValue = range.querySelector('.form__range-value');
@@ -71,7 +72,8 @@ document.querySelectorAll('.form__range').forEach(function (range) {
   });
 });
 
-// file upload
+/* File upload */
+
 document.querySelectorAll('.form__file-input').forEach(function (input) {
   input.addEventListener('change', function () {
     var uploadText = this.closest('.form__file').querySelector('.form__file-text');
@@ -82,6 +84,37 @@ document.querySelectorAll('.form__file-input').forEach(function (input) {
     }
   });
 });
+
+/* Select */
+
+var selectOpenClass = 'form__select_open';
+var selectUpClass = 'form__select_up';
+document.addEventListener('click', function (e) {
+  var select = e.target.closest('.form__select');
+
+  // close on click anywhere
+  document.querySelectorAll(".".concat(selectOpenClass)).forEach(function (openSelect) {
+    if (openSelect !== select) openSelect.classList.remove(selectOpenClass);
+  });
+  if (select) {
+    var options = select.querySelector('.form__select-options');
+    select.classList.toggle(selectOpenClass);
+    checkUpDown(select);
+
+    // set selected item
+    if (e.target.classList.contains('form__select-item')) {
+      select.querySelector('.form__input_select').value = e.target.textContent;
+      select.classList.remove(selectOpenClass);
+    }
+  }
+});
+
+// check up/down
+function checkUpDown(select) {
+  var rect = select.getBoundingClientRect();
+  var distanceToBottom = window.innerHeight - rect.bottom;
+  select.classList.toggle(selectUpClass, distanceToBottom < 250);
+}
 ;// CONCATENATED MODULE: ./src/js/modules/up.js
 if (window.innerWidth > 1024) {
   var up = document.createElement('div');

@@ -361,8 +361,10 @@ svg {
 .form__input::placeholder {
 	color: #272733;
 }
-.form__input:hover {
-	border-color: #3E9CDC;
+@media (hover: hover) {
+	.form__input:hover {
+		border-color: #3E9CDC;
+	}
 }
 .form__input:focus {
 	background-color: #FFFFFF;
@@ -370,6 +372,109 @@ svg {
 }
 .form__input:user-invalid {
 	border-color: #b21515;
+}
+.form__select {
+	position: relative;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+}
+.form__select::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 10px;
+	width: 20px;
+	background: url(../img/select-arrow.svg) center no-repeat;
+	pointer-events: none;
+}
+.form__select > .form__input {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-right: 40px;
+	cursor: pointer;
+	transition: background-color 0.1s, border-color 0.3s;
+}
+.form__select_open::before {
+	transform: scaleY(-1);
+	filter: brightness(1000%);
+}
+.form__select_open > .form__input {
+	background: #3D4050;
+	border-color: #3D4050;
+	color: #FFFFFF;
+}
+.form__select_open > .form__input::placeholder {
+	color: #FFFFFF;
+}
+.form__select-options {
+	background: #272733;
+	border: 1px solid #3D4050;
+	border-radius: 0 0 3px 3px;
+	padding: 4px;
+	position: absolute;
+	top: calc(100% - 1px);
+	left: 0;
+	z-index: 10;
+	min-width: 100%;
+	max-width: calc(100vw - var(--page-padding-x) * 2);
+	opacity: 0;
+	pointer-events: none;
+	transform: scaleY(0.8);
+	transform-origin: top;
+	transition: opacity 0.2s, transform 0.2s;
+}
+.form__select_up > .form__select-options {
+	top: unset;
+	bottom: calc(100% - 1px);
+	border-radius: 3px 3px 0 0;
+	transform-origin: bottom;
+}
+.form__select_open > .form__select-options {
+	opacity: 1;
+	pointer-events: all;
+	transform: scaleY(1);
+}
+.form__select-item {
+	font-size: 18px;
+	padding: 8px 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
+	transition: color 0.2s;
+}
+@media (hover: hover) {
+	.form__select-item:hover {
+		color: #3E9CDC;
+	}
+}
+.form__select-scrollbar {
+	width: 100%;
+	max-height: 200px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 0;
+	overscroll-behavior: contain;
+}
+@-moz-document url-prefix() {
+	.form__select-scrollbar {
+		scrollbar-color: #3E9CDC #3D4050;
+		scrollbar-width: thin;
+	}
+}
+.form__select-scrollbar::-webkit-scrollbar {
+	width: 7px;
+	height: 0;
+	background: #3D4050;
+}
+.form__select-scrollbar::-webkit-scrollbar-thumb {
+	background: #3E9CDC;
+	border-radius: 50px;
+}
+.form__select-scrollbar::-webkit-scrollbar-button:vertical:start:decrement, .form__select-scrollbar::-webkit-scrollbar-button:vertical:end:increment {
+	display: none;
 }
 .form__range {
 	display: grid;
@@ -436,6 +541,7 @@ svg {
 }
 .form__file-icon {
 	width: 18px;
+	height: 22px;
 	flex-shrink: 0;
 }
 .form__file-text {
