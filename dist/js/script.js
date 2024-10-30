@@ -105,6 +105,9 @@ document.addEventListener('click', function (e) {
     if (e.target.classList.contains('form__select-item')) {
       select.querySelector('.form__input_select').value = e.target.textContent;
       select.classList.remove(selectOpenClass);
+      // set valid
+      select.classList.add('form__select_valid');
+      select.querySelector('.form__input_select').classList.remove('form__input_invalid');
     }
   }
 });
@@ -115,6 +118,54 @@ function checkUpDown(select) {
   var distanceToBottom = window.innerHeight - rect.bottom;
   select.classList.toggle(selectUpClass, distanceToBottom < 250);
 }
+
+/* Validation form */
+
+document.addEventListener('DOMContentLoaded', function () {
+  var submitButton = document.querySelector('.button[type="submit"]');
+  var form = submitButton.closest('form');
+  var requiredFields = document.querySelectorAll('[required]');
+
+  // check on submit
+  submitButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    var allValid = true;
+
+    // check required fields
+    requiredFields.forEach(function (field) {
+      if (!field.checkValidity()) {
+        field.classList.add('form__input_invalid');
+        allValid = false;
+      } else {
+        field.classList.remove('form__input_invalid');
+      }
+    });
+
+    // check selects
+    var selects = document.querySelectorAll('.form__select');
+    selects.forEach(function (select) {
+      var selectInput = select.querySelector('.form__input_select');
+      if (!select.classList.contains('form__select_valid')) {
+        selectInput.classList.add('form__input_invalid');
+        allValid = false;
+      } else {
+        selectInput.classList.remove('form__input_invalid');
+      }
+    });
+    if (allValid) {
+      form.submit();
+    }
+  });
+
+  // check on keyup
+  requiredFields.forEach(function (field) {
+    field.addEventListener('keyup', function () {
+      if (this.checkValidity()) {
+        this.classList.remove('form__input_invalid');
+      }
+    });
+  });
+});
 ;// CONCATENATED MODULE: ./src/js/modules/up.js
 if (window.innerWidth > 1024) {
   var up = document.createElement('div');

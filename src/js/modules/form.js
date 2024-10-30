@@ -51,6 +51,9 @@ document.addEventListener('click', function(e) {
         if (e.target.classList.contains('form__select-item')) {
             select.querySelector('.form__input_select').value = e.target.textContent;
             select.classList.remove(selectOpenClass);
+				// set valid
+				select.classList.add('form__select_valid');
+            select.querySelector('.form__input_select').classList.remove('form__input_invalid');
         }
     }
 });
@@ -61,3 +64,55 @@ function checkUpDown(select) {
     const distanceToBottom = window.innerHeight - rect.bottom;
     select.classList.toggle(selectUpClass, distanceToBottom < 250);
 }
+
+
+/* Validation form */
+
+document.addEventListener('DOMContentLoaded', function () {
+	const submitButton = document.querySelector('.button[type="submit"]');
+	const form = submitButton.closest('form');
+	const requiredFields = document.querySelectorAll('[required]');
+
+	// check on submit
+	submitButton.addEventListener('click', function (e) {
+		e.preventDefault();
+
+		let allValid = true;
+
+		// check required fields
+		requiredFields.forEach(field => {
+			if (!field.checkValidity()) {
+				field.classList.add('form__input_invalid');
+				allValid = false;
+			} else {
+				field.classList.remove('form__input_invalid');
+			}
+		});
+
+		// check selects
+		const selects = document.querySelectorAll('.form__select');
+
+		selects.forEach(select => {
+			const selectInput = select.querySelector('.form__input_select');
+			if (!select.classList.contains('form__select_valid')) {
+				selectInput.classList.add('form__input_invalid');
+				allValid = false;
+			} else {
+				selectInput.classList.remove('form__input_invalid');
+			}
+		});
+
+		if (allValid) {
+			form.submit();
+		}
+	});
+	
+	// check on keyup
+	requiredFields.forEach(field => {
+		field.addEventListener('keyup', function () {
+			if (this.checkValidity()) {
+				this.classList.remove('form__input_invalid');
+			}
+		});
+	});
+});

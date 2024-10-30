@@ -41,17 +41,19 @@
 		&::placeholder {
 			color: $lightblack;
 		}
-		@media (hover: hover) {
-			&:hover {
-				border-color: $main-color;
-			}
-		}
-		&:focus {
-			background-color: $white;
+		&:hover {
 			border-color: $main-color;
 		}
+		&:focus {
+			border-color: $main-color;
+			background-color: $white;
+		}
+		&_invalid,
+		&_invalid:focus,
+		&_invalid:hover,
 		&:user-invalid {
 			border-color: $red;
+			background-color: lighten($red, 50%);
 		}
 	}
 
@@ -81,16 +83,18 @@
 			transition: background-color 0.1s, border-color 0.3s;
 		}
 		&_open {
-
+			
 			&::before {
 				transform: scaleY(-1);
 				filter: brightness(1000%);
 			}
-
+			
 			& > .form__input {
 				background: $darkgray;
 				border-color: $darkgray;
 				color: $white;
+				transition: background-color 0.1s, border-color 0.1s;
+				pointer-events: none;
 				
 				&::placeholder {
 					color: $white;
